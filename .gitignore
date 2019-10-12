@@ -1,0 +1,13 @@
+/Developer
+/Documents
+/Music
+/Pictures
+/Downloads
+/google-cloud-sdk
+.local/share
+*.log
+.cache
+.ssh
+
+.vim/plugged
+.config/nvim/plugged
