@@ -5,7 +5,7 @@ Automatically load my shortcuts, aliases and settings into new osx install
 
 ## Programs
 
-###utility
+### utility
 * brew
 * brew cask
 * vim
