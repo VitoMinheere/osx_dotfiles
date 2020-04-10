@@ -6,7 +6,7 @@
 error() { clear; printf "ERROR:\\n%s\\n" "$1"; exit;}
 
 is_admin() { 
-	if id -Gn username | grep -q -w admin;
+	if id -Gn $1 | grep -q -w admin;
 	then
 		echo "User is admin"
 	else
@@ -37,7 +37,7 @@ copy_git(){
 	cd $HOME
 	git init .
 	git remote add origin https://github.com/VitoMinheere/osx_dotfiles.git
-	git pull
+	git pull origin master
 }
 
 flutter_install(){
@@ -64,7 +64,7 @@ is_admin
 xcode-select --install
 
 # Copy git repo into home directory
-copy_git
+copy_git || error "Something went wrong when cloning repo"
 
 # Install brew in user home
 mkdir -p $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
@@ -78,10 +78,10 @@ brew bundle
 pip3 install --user virtualenv
 
 # Install Oh My Zsh
-[ ! -f ".zshrc"] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[ ! -f ".zshrc" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install Flutter
-[ ! -f "flutter"] && flutter_install
+[ ! -f "flutter" ] && flutter_install
 
 # Create personal folders
 mkdir -p $HOME/Developer

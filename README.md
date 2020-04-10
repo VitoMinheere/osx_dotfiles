@@ -4,6 +4,13 @@ My dotfiles and setup for osx dev environment
 Focused on Flutter/Python Development and some Game Development in Godot
 Also adds my shortcuts, aliases and settings into new osx install
 
+## Install
+
+To install run 
+```
+curl LO https://raw.githubusercontent.com/VitoMinheere/osx_dotfiles/master/setup.sh
+```
+
 ## Structure
 
 Installs Homebrew in the users home directory instead of usr/local 
