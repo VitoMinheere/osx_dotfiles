@@ -3,6 +3,17 @@
 # by Vito Minheere
 # License: GNU GPLv3
 
+error() { clear; printf "ERROR:\\n%s\\n" "$1"; exit;}
+
+is_admin() { 
+	if id -Gn username | grep -q -w admin;
+	then
+		echo "User is admin"
+	else
+		error "You are not an admin"
+	fi
+	}
+
 # displays a dialog for collecting a single line of text input
 # @param $1 the text of the prompt
 # @return the input text
@@ -46,6 +57,9 @@ flutter_install(){
 # Welcome user.
 welcomemsg || error "User exited."
 
+# Check if user is admin
+is_admin 
+
 # Install x-code commandline tools
 xcode-select --install
 
@@ -53,7 +67,7 @@ xcode-select --install
 copy_git
 
 # Install brew in user home
-mkdir -p homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+mkdir -p $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 echo 'export PATH="$HOME/homebrew/bin:$PATH"' >> $HOME/.profile
 
 # install Brewfile
