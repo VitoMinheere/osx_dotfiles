@@ -1,13 +1,13 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+# Load shortcut aliases
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" 
+[ -f "$HOME/.config/dev_alias" ] && source "$HOME/.config/dev_alias"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export EDITOR="vim"
-export TERMINAL="st"
-export BROWSER="chromium"
-export READER="zathura"
-export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 
 # less/man colors
 export LESS=-R
@@ -19,14 +19,23 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
-mpd >/dev/null 2>&1 &
+# Open new terminal window in current working dir
+# Save current working dir
+PROMPT_COMMAND='pwd > "${HOME}/.cwd" && find_git_branch; history -a'
+# Change to saved working dir on load
+[[ -f "${HOME}/.cwd" ]] && cd "$(< ${HOME}/.cwd)"
 
-[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
+# Automatically start and stop ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+        eval "$(<~/.ssh-agent-thing)"
+fi
 
-echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
-
-# Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
-
-# Switch escape and caps if tty:
-sudo -n loadkeys ~/.local/bin/ttymaps.kmap 2>/dev/null
+# Dart stagehand
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+# Flutter
+export PATH="$PATH":"/Applications/flutter/bin";
+# Android studio
+export ANDROID_HOME="/Applications/android-studio/bin/";
