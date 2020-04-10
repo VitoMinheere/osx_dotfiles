@@ -39,21 +39,21 @@ flutter_install(){
 welcomemsg || error "User exited."
 
 # Install x-code commandline tools
-
+xcode-select --install
 
 # Install brew in user home
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+export PATH="$HOME/homebrew/bin:$PATH"
 
 # install Brewfile
 brew tap Homebrew/bundle
-brew bundle .config/Brewfile
+brew bundle install 
 
 # install pip and virtualenv after Brewfile
 pip3 install --user virtualenv
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 # install Flutter
 # flutter_install
