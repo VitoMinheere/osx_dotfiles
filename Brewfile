@@ -23,10 +23,6 @@ brew install koekeishiya/formulae/skhd
 
 # install scripting-addition (will work only if you have SIP disable)
 sudo yabai --install-sa
-# default dotfile for yabai
-cp /usr/local/opt/yabai/share/yabai/examples/yabairc ~/.yabairc
-# default dotfile for skhd
-cp /usr/local/opt/yabai/share/yabai/examples/skhdrc ~/.skhdrc
 
 brew services start koekeishiya/formulae/yabai
 brew services start skhd
