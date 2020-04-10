@@ -24,6 +24,7 @@ welcomemsg() { \
 
 flutter_install(){
 	local flutter_path="${HOME}/flutter/"
+	mkdir -p $ flutter_path
 	cd $flutter_path
 	git clone https://github.com/flutter/flutter.git -b stable
 	flutter precache
@@ -42,24 +43,24 @@ welcomemsg || error "User exited."
 xcode-select --install
 
 # Install brew in user home
-mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-export PATH="$HOME/homebrew/bin:$PATH"
+mkdir -p homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+echo 'export PATH="$HOME/homebrew/bin:$PATH"' >> $HOME/.profile
 
 # install Brewfile
 brew tap Homebrew/bundle
-brew bundle install 
+brew bundle 
 
 # install pip and virtualenv after Brewfile
 pip3 install --user virtualenv
 
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[ ! -f ".zshrc"] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install Flutter
-# flutter_install
+[ ! -f "flutter"] && flutter_install
 
 # Create personal folders
-mkdir $HOME/Developer
+mkdir -p $HOME/Developer
 
 # Done
 echo "Install done, please sign out and sign in to see changes"
