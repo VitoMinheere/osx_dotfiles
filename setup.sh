@@ -57,3 +57,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # install Flutter
 # flutter_install
+
+# Create personal folders
+mkdir $HOME/Developer
+
+# Done
+echo "Install done, please sign out and sign in to see changes"
