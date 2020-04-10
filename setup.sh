@@ -19,8 +19,15 @@ function text_dialog() {
 }
 
 welcomemsg() { \
-	text_dialog "Welcome to my Flutter dev setup  Script!\\n\\nThis script will automatically install a fully-featured vscodium development setup, which I use as my main machine for Flutter and Dart projects.\\n\\n-Vito"
+	text_dialog "Welcome to my osx_dotfiles install Script!\\n\\nThis script will automatically install a fully-featured vscodium development setup, which I use as my main machine for Flutter and Dart projects.\\n This script should be run as admin as it will install files in /Applications \\n \\n-Vito"
 	}
+
+copy_git(){
+	cd $HOME
+	git init .
+	git remote add origin https://github.com/VitoMinheere/osx_dotfiles.git
+	git pull
+}
 
 flutter_install(){
 	local flutter_path="${HOME}/flutter/"
@@ -41,6 +48,9 @@ welcomemsg || error "User exited."
 
 # Install x-code commandline tools
 xcode-select --install
+
+# Copy git repo into home directory
+copy_git
 
 # Install brew in user home
 mkdir -p homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
