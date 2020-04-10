@@ -22,3 +22,18 @@ alias ka="killall" \
 	cfa="$EDITOR ~/.config/aliasrc" \
 	cfz="$EDITOR ~/.zshrc" \
 	cfk="$EDITOR ~/.config/skhd/skhdrc" \
+
+# GIT aliases
+alias gs="git status"
+alias gp='git pull'
+alias cg='cd `git rev-parse --show-toplevel`' # Go to top level in git project directory
+alias ga="git add"
+alias gc="git commit -m"
+alias gb="git branch"
+alias gpu="git push"
+alias gsync="git pull origin develop"
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+
+
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5'
