@@ -9,6 +9,7 @@ Also adds my shortcuts, aliases and settings into new osx install
 To install run 
 ```
 curl LO https://raw.githubusercontent.com/VitoMinheere/osx_dotfiles/master/setup.sh
+./setup.sh
 ```
 
 ## Structure
