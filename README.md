@@ -1,20 +1,18 @@
 # osx_dotfiles
-Dotfiles and setup for osx dev environment
+My dotfiles and setup for osx dev environment
 
-Automatically load my shortcuts, aliases and settings into new osx install
+Focused on Flutter/Python Development and some Game Development in Godot
+Also adds my shortcuts, aliases and settings into new osx install
 
-## Programs
+## Structure
 
-### utility
-* brew
-* brew cask
-* vim
-* iterm2
+Installs Homebrew in the users home directory instead of usr/local 
+See https://applehelpwriter.com/2018/03/21/how-homebrew-invites-users-to-get-pwned/
 
-### development
-* vscodium
-* dart
-* flutter
-* xcode
-* android-sdk
+```
+Alias files
 
+.config/aliasrc         Basic alias for things in the system
+.config/dev_aliasrc     Custom alias for personal projects(not in repo)
+
+```
