@@ -51,5 +51,9 @@ brew bundle .config/Brewfile
 # install pip and virtualenv after Brewfile
 pip3 install --user virtualenv
 
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
 # install Flutter
-flutter_install
+# flutter_install
