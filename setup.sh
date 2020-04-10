@@ -22,6 +22,15 @@ welcomemsg() { \
 	text_dialog "Welcome to my Flutter dev setup  Script!\\n\\nThis script will automatically install a fully-featured vscodium development setup, which I use as my main machine for Flutter and Dart projects.\\n\\n-Vito"
 	}
 
+flutter_install(){
+	local flutter_path="${HOME}/flutter/"
+	cd $flutter_path
+	git clone https://github.com/flutter/flutter.git -b stable
+	flutter precache
+	echo "Installed flutter to ${flutter_path}"
+	echo "Run flutter doctor to install further"
+}
+
 ### THE ACTUAL SCRIPT ###
 
 ### This is how everything happens in an intuitive format and order.
@@ -29,3 +38,18 @@ welcomemsg() { \
 # Welcome user.
 welcomemsg || error "User exited."
 
+# Install x-code commandline tools
+
+
+# Install brew in user home
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+
+# install Brewfile
+brew tap Homebrew/bundle
+brew bundle .config/Brewfile
+
+# install pip and virtualenv after Brewfile
+pip3 install --user virtualenv
+
+# install Flutter
+flutter_install
