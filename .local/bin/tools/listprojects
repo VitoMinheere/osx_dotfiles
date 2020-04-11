@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 dirs=(~/Developer/*)
 
-read -p "$(f=0
+read  "?$(f=0
 	for dirname in "${dirs[@]}"; do
 		echo $((++f)): "$(basename "$dirname")"
 	    done
