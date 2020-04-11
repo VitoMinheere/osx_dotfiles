@@ -34,4 +34,5 @@ brew 'zim'
 # gamedev
 cask 'godot'
 cask 'blender'
+cask 'gimp'
 

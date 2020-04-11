@@ -94,6 +94,7 @@ brew tap Homebrew/bundle
 brew bundle
 brew services start 'koekeishiya/formulae/yabai'
 brew services start 'skhd'
+sudo yabai --install-s || error "SIP needs to be disabled for these scripts to work"
 
 # install pip and virtualenv after Brewfile
 pip3 install --user virtualenv
