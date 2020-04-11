@@ -5,6 +5,10 @@
 
 error() { clear; printf "ERROR:\\n%s\\n" "$1"; exit;}
 
+pretty_print() {
+  printf "\n%b\n" "$1"
+}
+
 is_admin() { 
 	if id -Gn $1 | grep -q -w admin;
 	then
@@ -40,6 +44,22 @@ copy_git(){
 	git pull origin master
 }
 
+install_homebrew(){
+	if ! command -v brew &>/dev/null; then
+	  pretty_print "Installing Homebrew, an OSX package manager, follow the instructions..." 
+	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+	  if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
+	    pretty_print "Put Homebrew location earlier in PATH ..."
+	      printf '\n# recommended by brew doctor\n' >> ~/.zshrc
+	      printf 'export PATH="/usr/local/bin:$PATH"\n' >> ~/.zshrc
+	      export PATH="/usr/local/bin:$PATH"
+	  fi
+	else
+	  pretty_print "You already have Homebrew installed...good job!"
+	fi
+}
+
 flutter_install(){
 	local flutter_path="${HOME}/flutter/"
 	mkdir -p $ flutter_path
@@ -64,11 +84,10 @@ is_admin
 xcode-select --install
 
 # Copy git repo into home directory
-copy_git || error "Something went wrong when cloning repo"
+[ ! -f ".git" ] && copy_git || error "Directory is already a git repo"
 
 # Install brew in user home
-mkdir -p $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-echo 'export PATH="$HOME/homebrew/bin:$PATH"' >> $HOME/.profile
+install_homebrew
 
 # install Brewfile
 brew tap Homebrew/bundle
@@ -81,7 +100,7 @@ pip3 install --user virtualenv
 [ ! -f ".zshrc" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install Flutter
-[ ! -f "flutter" ] && flutter_install
+[ ! -d "flutter" ] && flutter_install
 
 # Create personal folders
 mkdir -p $HOME/Developer
