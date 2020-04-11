@@ -11,6 +11,7 @@ cask 'kitty'
 # dev
 cask 'vscodium'
 cask 'android-studio'
+cask 'android-sdk'
 cask 'google-cloud-sdk'
 
 # wm
