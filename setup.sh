@@ -61,8 +61,8 @@ install_homebrew(){
 }
 
 flutter_install(){
-	local flutter_path="${HOME}/flutter/"
-	mkdir -p $ flutter_path
+	local flutter_path="${HOME}/.local/bin/flutter/"
+	mkdir -p $flutter_path
 	cd $flutter_path
 	git clone https://github.com/flutter/flutter.git -b stable
 	flutter precache

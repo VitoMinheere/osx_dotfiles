@@ -1,0 +1,12 @@
+#!/bin/bash
+dirs=(~/Developer/*)
+
+read -p "$(f=0
+	for dirname in "${dirs[@]}"; do
+		echo $((++f)): "$(basename "$dirname")"
+	    done
+	echo -ne 'Please select a directory > '
+	)" selection
+
+selected_dir="${dirs[$((selection-1))]}"
+cd $selected_dir && ls -al
