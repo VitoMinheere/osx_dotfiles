@@ -2,12 +2,16 @@
 tap 'homebrew/homebrew-cask' || true
 cask_args appdir: '/Applications'
 
+# utilities
 cask 'google-chrome'
-cask 'chromium'
 cask 'vlc'
 cask 'xquartz'
 cask 'kitty'
+
+# dev
 cask 'vscodium'
+cask 'android-studio'
+cask 'google-cloud-sdk'
 
 # wm
 tap 'koekeishiya/formulae'
@@ -28,4 +32,5 @@ brew 'zim'
 
 # gamedev
 cask 'godot'
+cask 'blender'
 

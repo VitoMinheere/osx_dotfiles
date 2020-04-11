@@ -22,7 +22,7 @@ alias ka="killall" \
 	cfa="vim ~/.config/aliasrc" \
 	cfz="vim ~/.zshrc" \
 	cfk="vim ~/.config/skhd/skhdrc" \
-	cfk="vim ~/.config/yabai/yabairc" \
+	cfy="vim ~/.config/yabai/yabairc" \
 
 # GIT aliases
 alias gs="git status"

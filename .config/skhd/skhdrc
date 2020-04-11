@@ -1,21 +1,11 @@
 # APPS
 
 # term
-alt - t : /Applications/kitty.app/Contents/MacOS/kitty --listen-on=unix:/tmp/mykitty --single-instance -d ~
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # browser
-alt - w : /Applications/Google\ Chrome.app
+cmd - w : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 # finder
 alt - f : open ~
-
-# CHANGE COLORS
-
-fn - l : kitty @ --to=unix:/tmp/mykitty set-colors -a "~/.config/kitty/theme-light.conf"
-fn - d : kitty @ --to=unix:/tmp/mykitty set-colors -a "~/.config/kitty/theme-dark.conf"
-
-# BRIGHTNESS/VOLUME
-
-
-
 
 # quick restart
 alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
@@ -25,6 +15,9 @@ alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 
 # WINDOWS
+
+# Close focused window
+# cmd - q:
 
 # navigate windows and spaces
 alt - h : yabai -m window --focus prev
@@ -67,7 +60,7 @@ cmd + alt - n : yabai -m space --create;\
                 yabai -m space --focus $(echo ${id:10:${#id}-10})
 
 # destroy space
-cmd + alt - w : yabai -m space --destroy
+cmd + alt - q : yabai -m space --destroy
 
 # toggle mission control
 alt + ctrl - a : yabai -m space --toggle mission-control
