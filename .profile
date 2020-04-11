@@ -2,7 +2,6 @@
 # Profile file. Runs on login.
 
 # Load shortcut aliases
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" 
 [ -f "$HOME/.config/dev_alias" ] && source "$HOME/.config/dev_alias"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
@@ -36,6 +35,6 @@ fi
 # Dart stagehand
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 # Flutter
-export PATH="$PATH":"/Applications/flutter/bin";
+export PATH="$PATH":"$HOME/flutter/bin";
 # Android studio
 export ANDROID_HOME="/Applications/android-studio/bin/";
