@@ -23,3 +23,9 @@ Alias files
 .config/dev_aliasrc     Custom alias for personal projects(not in repo)
 
 ```
+
+## Manual steps
+
+Currently some manual steps are needed to have Flutter actually see the Android sdk location. These include starting up Android Studio and completing the install, including downloading the extensions for Flutter and Dart. 
+
+Xcode also needs to be manually downloaded as i am currently running Mojave for which you need to get XCode 10.3 from the Apple Developer website. 
