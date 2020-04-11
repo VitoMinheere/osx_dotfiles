@@ -6,9 +6,9 @@ alias ka="killall" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	ref="source ~/.config/aliasrc" \
 	src="source venv/bin/activate" \
-	dev=". ~/.config/scripts/listprojects.sh" \
+	dev=". ~/.local/bin/tools/listprojects" \
 	ll="ls -al" \
 	h="cd ~/ && ls -a" \
 	d="cd ~/Documents && ls -a" \
@@ -19,9 +19,10 @@ alias ka="killall" \
 	cf="cd ~/.config && ls -a" \
 	sc="cd ~/.local/bin && ls -a" \
 	mn="cd /mnt && ls -a" \
-	cfa="$EDITOR ~/.config/aliasrc" \
-	cfz="$EDITOR ~/.zshrc" \
-	cfk="$EDITOR ~/.config/skhd/skhdrc" \
+	cfa="vim ~/.config/aliasrc" \
+	cfz="vim ~/.zshrc" \
+	cfk="vim ~/.config/skhd/skhdrc" \
+	cfk="vim ~/.config/yabai/yabairc" \
 
 # GIT aliases
 alias gs="git status"

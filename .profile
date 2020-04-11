@@ -36,5 +36,3 @@ fi
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 # Flutter
 export PATH="$PATH":"$HOME/flutter/bin";
-# Android studio
-export ANDROID_HOME="/Applications/android-studio/bin/";
