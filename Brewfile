@@ -3,7 +3,6 @@ tap 'homebrew/homebrew-cask' || true
 cask_args appdir: '/Applications'
 
 cask 'google-chrome'
-cask 'chromium'
 cask 'vlc'
 cask 'xquartz'
 cask 'kitty'
