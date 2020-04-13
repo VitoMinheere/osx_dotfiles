@@ -20,10 +20,10 @@ alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 # cmd - q:
 
 # navigate windows and spaces
-alt - h : yabai -m window --focus prev
-alt - k : yabai -m window --focus prev
-alt - j : yabai -m window --focus next
-alt - k : yabai -m window --focus prev
+cmd - h : yabai -m window --focus prev
+cmd - k : yabai -m window --focus prev
+cmd - j : yabai -m window --focus next
+cmd - k : yabai -m window --focus prev
 alt + ctrl - j : yabai -m space  --focus next
 alt + ctrl - k : yabai -m space  --focus prev
 
@@ -73,30 +73,30 @@ shift + alt + cmd - j : yabai -m space --move next
 shift + alt + cmd - k : yabai -m space --move prev
 
 # fast focus desktop
-alt - tab : yabai -m space --focus recent
-alt - 1 : yabai -m space --focus 1
-alt - 2 : yabai -m space --focus 2
-alt - 3 : yabai -m space --focus 3
-alt - 4 : yabai -m space --focus 4
-alt - 5 : yabai -m space --focus 5
-alt - 6 : yabai -m space --focus 6
-alt - 7 : yabai -m space --focus 7
-alt - 8 : yabai -m space --focus 8
-alt - 9 : yabai -m space --focus 9
-alt - 0 : yabai -m space --focus 10
+cmd - tab : yabai -m space --focus recent
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
+cmd - 3 : yabai -m space --focus 3
+cmd - 4 : yabai -m space --focus 4
+cmd - 5 : yabai -m space --focus 5
+cmd - 6 : yabai -m space --focus 6
+cmd - 7 : yabai -m space --focus 7
+cmd - 8 : yabai -m space --focus 8
+cmd - 9 : yabai -m space --focus 9
+cmd - 0 : yabai -m space --focus 10
 alt - escape : yabai -m space --focus last
 
 # send window to desktop and follow focus
-shift + alt - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + alt - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + alt - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + alt - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + alt - 5 : yabai -m window --space  5; yabai -m space --focus 5
-shift + alt - 6 : yabai -m window --space  6; yabai -m space --focus 6
-shift + alt - 7 : yabai -m window --space  7; yabai -m space --focus 7
-shift + alt - 8 : yabai -m window --space  8; yabai -m space --focus 8
-shift + alt - 9 : yabai -m window --space  9; yabai -m space --focus 9
-shift + alt - 0 : yabai -m window --space 10; yabai -m space --focus 10
+shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
+shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
+shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
+shift + cmd - 6 : yabai -m window --space  6; yabai -m space --focus 6
+shift + cmd - 7 : yabai -m window --space  7; yabai -m space --focus 7
+shift + cmd - 8 : yabai -m window --space  8; yabai -m space --focus 8
+shift + cmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
+shift + cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
 shift + alt - tab : yabai -m window --space last; yabai -m space --focus last
 
 

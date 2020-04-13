@@ -8,5 +8,5 @@ read  "?$(f=0
 	echo -ne 'Please select a directory > '
 	)" selection
 
-selected_dir="${dirs[$((selection-1))]}"
+selected_dir="${dirs[$((selection))]}"
 cd $selected_dir && ls -al
